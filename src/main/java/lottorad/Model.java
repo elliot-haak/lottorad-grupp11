@@ -1,7 +1,7 @@
 package lottorad;
 import java.util.Random;
 
-class Model {
+public class Model {
     // En lottorad består av 7 unika siffror från 1 till och med 35.
     private int[] lottorad = new int[7]; 
     private Random random = new Random(); 
