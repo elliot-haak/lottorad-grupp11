@@ -14,7 +14,5 @@ public class Controller {
 		this.view = view; 
 		//+ den med filhantering
 		this.fm = fm;
-
-
 	}
 }
