@@ -3,6 +3,7 @@ package lottorad;
 import java.io.*;
 
 public class Filhantering {
+<<<<<<< Updated upstream
     private static Filhantering instance = null;
 
     private Filhantering() {
@@ -74,4 +75,8 @@ public class Filhantering {
         }
 
     }
+=======
+	
+	
+>>>>>>> Stashed changes
 }
