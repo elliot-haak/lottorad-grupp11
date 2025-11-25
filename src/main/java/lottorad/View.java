@@ -64,8 +64,8 @@ public class View extends JFrame {
 	}
 	public void showFrame() {
 		setVisible(true);
-
 	}
+	
 	//lyssnare Menyvalen 
 	public void rensaLyssnare(ActionListener lyssnare) {
 
