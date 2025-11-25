@@ -10,9 +10,6 @@ public class View extends JFrame {
 	private JFrame frame = new JFrame(); 
 	private JTextArea area = new JTextArea();
 
-	public String getAreaText() {
-        return area.getText();
-    }
 	//knappar 
 	private JButton slumpKnapp = new JButton("Slumpa lottorad"); 
 	private JButton rensaKnapp = new JButton("Rensa"); 
@@ -101,7 +98,9 @@ public class View extends JFrame {
 	public void error(String msg) {
 	    JOptionPane.showMessageDialog(this, msg);
 	}
-
+    public String getAreaText() {
+        return area.getText();
+    }
 
 
 }
