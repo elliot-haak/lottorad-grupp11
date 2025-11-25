@@ -48,7 +48,17 @@ public class Filhantering {
     public int[] loadFromCSV(String fileName){
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
 
-            String line = reader.readLine();
+
+            String line;
+            while( (line = reader.readLine() ) != null) {
+                //System.out.printf(line + " \n");
+                if(!line.isEmpty()) {
+                    if(!line.contains("Datum")) {
+                        System.out.println(line + " !!");
+                    }
+                }
+
+            }
 
             if(line == null || line.trim().isEmpty()){
                 System.err.println("File is empty");
