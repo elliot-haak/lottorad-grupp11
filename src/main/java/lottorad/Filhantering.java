@@ -23,9 +23,9 @@ public class Filhantering {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))){
             LocalDate date = LocalDate.now();
             LocalTime time = LocalTime.now();
-            writer.write(String.valueOf(date + ": "));
-            System.out.println(date + " now");
-
+            writer.write("Datum: "+date+" tid: "+time+"\n");
+            writer.write("Lottorad: ");
+        
             for(int x = 0; x < numbers.length; x++){
                 writer.write(String.valueOf(numbers[x]));
                 if(x < numbers.length - 1){
