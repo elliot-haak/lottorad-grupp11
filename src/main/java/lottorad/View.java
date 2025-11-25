@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class View extends JFrame {
-	
 	private JFrame frame = new JFrame(); 
 	private JTextArea area = new JTextArea();
 
@@ -31,8 +30,8 @@ public class View extends JFrame {
 	
 	//måste lägga det i konstruktorn 
 	public View() {
-		
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE); 
+		System.out.println("View skapad!");
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(300,200);
 		this.setResizable(false); 
 		this.setLayout(new BorderLayout(10,10));
