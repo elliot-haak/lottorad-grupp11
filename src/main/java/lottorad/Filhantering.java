@@ -20,10 +20,12 @@ public class Filhantering {
 
     public boolean saveToCSV(int[] numbers, String fileName){
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))){
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))){
             LocalDate date = LocalDate.now();
             LocalTime time = LocalTime.now();
+            writer.write(String.valueOf(date + ": "));
             System.out.println(date + " now");
+
             for(int x = 0; x < numbers.length; x++){
                 writer.write(String.valueOf(numbers[x]));
                 if(x < numbers.length - 1){
@@ -32,7 +34,7 @@ public class Filhantering {
             }
 
             writer.newLine();
-            writer.write(String.valueOf(date));
+            writer.newLine();
             System.out.println("File saved");
             return true;
 

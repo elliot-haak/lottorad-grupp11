@@ -92,9 +92,9 @@ public class View extends JFrame {
 	    for (int lott : rad) {
 	        text += lott + " ";
 	    }
-	    area.setText("Resultat: "+text);
+	    area.setText(text);
 	}
-	// Från chatten men bättre med try and catch tänker jag med vanliga error msg 
+    // Visa error message
 	public void error(String msg) {
 	    JOptionPane.showMessageDialog(this, msg);
 	}
