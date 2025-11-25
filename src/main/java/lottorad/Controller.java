@@ -4,15 +4,15 @@ import java.io.File;
 import java.util.logging.FileHandler;
 
 public class Controller {
-	private Model model = new Model(); 
-	private View view = new View(); 
-	private Filhantering fm = Filhantering.getInstance();
+	private Model model;
+	private View view;
+	private Filhantering fm;
 	
 	//Konstruktorn 
 	public Controller(Model model, View view, Filhantering fm) {
-		this.model = model; 
-		this.view = view; 
+		this.model = new Model();
+		this.view = new View();
 		//+ den med filhantering
-		this.fm = fm;
+		this.fm = Filhantering.getInstance();
 	}
 }
