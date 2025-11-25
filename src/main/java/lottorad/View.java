@@ -3,59 +3,69 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 //import java.io.IOException;   try and catch 
 import javax.swing.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class View extends JFrame {
 	
-	private JFrame frame = new JFrame("Lotto"); 
+	private JFrame frame = new JFrame(); 
 	private JTextArea area = new JTextArea();
+
+	
 	//knappar 
 	private JButton slumpKnapp = new JButton("Slumpa lottorad"); 
 	private JButton rensaKnapp = new JButton("Rensa"); 
+	
 	//panel 
 	private JPanel panel = new JPanel(); 
 	
 	//meny
 	private JMenuBar menu = new JMenuBar();
 	private JMenu menuTitel = new JMenu("File");
-	
-	//private JMenuItem menuItem = new JMenuItem();
-	//private JMenuItem slumpVal;
 	private JMenuItem sparaVal;
 	private JMenuItem lasaVal; 
+	
+	//Använder till id till lottrader 
+	private LocalDate date = LocalDate.now();
+	private LocalTime time = LocalTime.now();
 	
 	//måste lägga det i konstruktorn 
 	public View() {
 		
-		frame.setDefaultCloseOperation(EXIT_ON_CLOSE); 
-		frame.setSize(250,200);
-		frame.setResizable(false); 
-		frame.setLayout(new FlowLayout());
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE); 
+		this.setSize(300,200);
+		this.setResizable(false); 
+		this.setLayout(new BorderLayout(10,10));
+		this.setLocationRelativeTo(null); 
+		this.setTitle("Slumpa lotter");
 	    
-	
 		//Lägg till i meny 
-		//slumpVal = new JMenuItem("Slumpa lotter");
 		sparaVal = new JMenuItem("Spara lotter");
 		lasaVal = new JMenuItem("Läsa lotter");
 		menu.add(menuTitel); 
-		//menuTitel.add(slumpVal);
 		menuTitel.add(sparaVal);
 		menuTitel.add(lasaVal); 
 		
-	
-		//Lägger in i frame 
-		frame.add(area);  
+		//area och panel 
 		area.setEditable(false); // så man inte kan skriva i den 
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER,30,10)); 
 		
-		frame.setJMenuBar(menu); // så den inte hamnar mitt i. 
+		//Lägger in i frame och panel och meny 
+		this.setJMenuBar(menu); // så menyn inte hamnar mitt i. 
+		this.add(area); 
 		panel.add(slumpKnapp); 
 		panel.add(rensaKnapp); 
-		frame.add(panel); 
+		this.add(panel, BorderLayout.SOUTH); 
 		
-		//Göra allt synligt 
-		frame.setVisible(true);
-	
+		//Använder till id till lottrader i filhantering 
+		System.out.println("Datum: "+date +" Tid: "+ time);
+	  
+		
 	}
-	
+	public void showFrame() {
+		setVisible(true);
+
+	}
 	//lyssnare Menyvalen 
 	public void rensaLyssnare(ActionListener lyssnare) {
 
@@ -84,11 +94,11 @@ public class View extends JFrame {
 	    for (int lott : rad) {
 	        text += lott + " ";
 	    }
-	    area.setText(text);
+	    area.setText("Resultat: "+text);
 	}
 	// Från chatten men bättre med try and catch tänker jag med vanliga error msg 
 	public void error(String msg) {
-	    JOptionPane.showMessageDialog(frame, msg);
+	    JOptionPane.showMessageDialog(this, msg);
 	}
 
 
