@@ -37,6 +37,14 @@ public class Controller {
 			//sparar ner lottoraden till filen
 			
 			try {
+                System.out.println(view);
+                String areaText = view.getAreaText();
+                System.out.println(areaText + " areatext");
+                if(areaText.isEmpty()) {
+                    view.error("Saknas lottorad");
+                    System.out.println("Saknas lottorad");
+                    return;
+                }
 				boolean ok = fm.saveToCSV(model.getLottorad(), "lottorad.csv");
 				if(!ok) {
 					view.error("Could not save the file"); 

@@ -1,7 +1,8 @@
 package lottorad;
 
 import java.io.*;
-
+import java.time.LocalDate;
+import java.time.LocalTime;
 public class Filhantering {
     private static Filhantering instance = null;
 
@@ -20,7 +21,9 @@ public class Filhantering {
     public boolean saveToCSV(int[] numbers, String fileName){
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))){
-
+            LocalDate date = LocalDate.now();
+            LocalTime time = LocalTime.now();
+            System.out.println(date + " now");
             for(int x = 0; x < numbers.length; x++){
                 writer.write(String.valueOf(numbers[x]));
                 if(x < numbers.length - 1){
@@ -29,6 +32,7 @@ public class Filhantering {
             }
 
             writer.newLine();
+            writer.write(String.valueOf(date));
             System.out.println("File saved");
             return true;
 
