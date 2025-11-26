@@ -1,10 +1,5 @@
 package lottorad;
 
-
-//import java.awt.event.ActionListener;
-//import java.io.File;
-
-
 public class Controller {
 
 	private  Model model; 
@@ -34,7 +29,7 @@ public class Controller {
 		
 		view.sparaLyssnare(e->{
 			//try catch - felhantering
-			//sparar ner lottoraden till filen
+			//sparar ner lottoraden till filen med filnamn "lottorad.cvs" 
 			
 			try {
                 System.out.println(view);
