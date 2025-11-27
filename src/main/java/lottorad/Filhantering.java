@@ -23,6 +23,10 @@ public class Filhantering {
 
     public boolean saveToCSV(int[] numbers, String fileName){
 
+        File file = new File(fileName);
+
+        file.setWritable(true);
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))){
             LocalDate date = LocalDate.now();
             LocalTime time = LocalTime.now();
@@ -39,6 +43,8 @@ public class Filhantering {
             writer.newLine();
             writer.newLine();
             System.out.println("File saved");
+
+            file.setReadOnly();
             return true;
 
         }catch(IOException err){
@@ -47,7 +53,7 @@ public class Filhantering {
         }
 
     }
-
+    //metod some läser upp alla lottorader i fil.
     public int[][] loadFromCSV(String fileName){
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
 
