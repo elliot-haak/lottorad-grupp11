@@ -9,15 +9,13 @@ import java.time.LocalTime;
 public class View extends JFrame {
 	private JFrame frame = new JFrame(); 
 	private JTextArea area = new JTextArea();
-    private JScrollBar scroller = new JScrollBar();
-
 	//knappar 
 	private JButton slumpKnapp = new JButton("Slumpa lottorad"); 
 	private JButton rensaKnapp = new JButton("Rensa"); 
 	
 	//panel 
 	private JPanel panel = new JPanel(); 
-	
+
 	//meny
 	private JMenuBar menu = new JMenuBar();
 	private JMenu menuTitel = new JMenu("File");
@@ -54,8 +52,7 @@ public class View extends JFrame {
 		this.add(area); 
 		panel.add(slumpKnapp); 
 		panel.add(rensaKnapp);
-        panel.add(scroller);
-		this.add(panel, BorderLayout.SOUTH); 
+		this.add(panel, BorderLayout.SOUTH);
 		
 		//Använder till id till lottrader i filhantering 
 		System.out.println("Datum: "+date +" Tid: "+ time);
@@ -103,6 +100,9 @@ public class View extends JFrame {
     public String getAreaText() {
         return area.getText();
     }
+    /*public void success(String msg) {
+        JOptionPane.show
+    }*/
     public void setText(String text){
         area.setText(text);
     }

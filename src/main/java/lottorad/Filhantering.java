@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Filhantering {
     private static Filhantering instance = null;
-
     private Filhantering() {
         System.out.println("Filemanager created");
     }
