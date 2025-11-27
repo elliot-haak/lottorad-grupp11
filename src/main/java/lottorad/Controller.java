@@ -76,6 +76,7 @@ public class Controller {
 			    //OM ingen data hittas skickas ett felmeddelande
 			    if(rad == null){
                     System.err.println("Ingen data hittad");
+                    return;
                 }
 			    //Stringbuilder för att bygga upp en text (en lottorad) som ska visas för användaren
                 StringBuilder text = new StringBuilder();
