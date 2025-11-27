@@ -51,15 +51,6 @@ public class View extends JFrame {
 		this.add(scroller, BorderLayout.CENTER);
 		
 	}
-	public void visaSparadLottDialog() {
-	    JOptionPane.showMessageDialog(
-	        this,                          // fönstret som dialogen hör till
-	        "Du har sparat lotten.",       // meddelandetext
-	        "Lott sparad",                 // titel på popupen
-	        JOptionPane.INFORMATION_MESSAGE // ikon-typ (info)
-	    );
-	}
-
 	//Metod för att visa frame 
 	public void showFrame() {
 		setVisible(true);
