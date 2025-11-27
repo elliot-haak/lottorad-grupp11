@@ -1,10 +1,6 @@
 package lottorad;
 
 
-//import java.awt.event.ActionListener;
-//import java.io.File;
-
-
 public class Controller {
 
 	private  Model model; 
@@ -15,7 +11,6 @@ public class Controller {
 	public Controller(Model model, View view, Filhantering fm) {
 		this.model = model; 
 		this.view = view; 
-		//+ den med filhantering
 		this.fm = fm;
 	}
 	
@@ -32,14 +27,16 @@ public class Controller {
 			view.visaLottorad(model.getLottorad()); //visar lottoraden 
 		});
 		
+		//Lyssnare för spara-knappen 
 		view.sparaLyssnare(e->{
-			//try catch - felhantering
 			//sparar ner lottoraden till filen
 			
 			try {
                 System.out.println(view);
                 String areaText = view.getAreaText();
                 System.out.println(areaText + " areatext");
+               
+                //Om textarean är tom 
                 if(areaText.isEmpty()) {
                     view.error("Saknas lottorad");
                     view.setText("Kunde inte spara");
@@ -52,11 +49,15 @@ public class Controller {
                     System.out.println("Måste dra ny lottorad");
                     return;
                 }
+                //Sparar ner lottoraden till csv-filen 
 				boolean ok = fm.saveToCSV(model.getLottorad(), "lottorad.csv");
+			
+				//Om något går fel med sparandet visas error
 				if(!ok) {
-					view.error("Could not save the file"); 
+					view.error("Kunde inte spara filen"); 
 				}
-
+				
+				//Visar för användaren att filen är sparad
                 view.setText("sparat fil");
 				
 			}catch(Exception err) {
@@ -65,14 +66,13 @@ public class Controller {
 			}		
 		}); 
 		
-		
+		//lyssnare för läsa-knappen
 		view.lasaLyssnare(e->{ 
 			//laddar filen och läser den
 			try {
 			    int [][] rad = fm.loadFromCSV("lottorad.csv");
                 if(rad == null){
-                    System.err.println("No data found");
-                    return;
+                    System.err.println("Ingen data hittad");
                 }
 
                 StringBuilder text = new StringBuilder();
