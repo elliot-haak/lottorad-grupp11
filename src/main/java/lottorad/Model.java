@@ -32,7 +32,8 @@ public class Model {
         }
     }
     public int[] getLottorad(){
-    	return lottorad; 
+
+        return lottorad;
     }
 }
 

@@ -3,6 +3,9 @@ package lottorad;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Filhantering {
     private static Filhantering instance = null;
 
@@ -45,22 +48,34 @@ public class Filhantering {
 
     }
 
-    public int[] loadFromCSV(String fileName){
+    public int[][] loadFromCSV(String fileName){
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))){
 
-
             String line;
-            while( (line = reader.readLine() ) != null) {
-                //System.out.printf(line + " \n");
-                if(!line.isEmpty()) {
-                    if(!line.contains("Datum")) {
-                        System.out.println(line + " !!");
-                    }
-                }
+            List<int[]> allLottoRows = new ArrayList<>();
 
+            while((line = reader.readLine()) != null){
+
+                if(line.startsWith("Lottorad:")){
+                    String onlyNumbers = line.substring(("Lottorad:").length()).trim();
+                    String[] parts = onlyNumbers.split(",");
+                    int[] numbers = new int[parts.length];
+
+                    for(int x = 0; x < parts.length; x++){
+                        numbers[x] = Integer.parseInt(parts[x].trim());
+                    }
+
+                    allLottoRows.add(numbers);
+
+                }
             }
 
-            if(line == null || line.trim().isEmpty()){
+            if(allLottoRows.isEmpty()){
+                System.err.println("No lottorows found");
+                return null;
+            }
+
+            /*if(line == null || line.trim().isEmpty()){
                 System.err.println("File is empty");
                 return null;
             }
@@ -70,11 +85,11 @@ public class Filhantering {
 
             for(int x = 0; x < parts.length; x++){
                 numbers[x] = Integer.parseInt(parts[x].trim());
-            }
+            }*/
 
             System.out.println("File is read");
 
-            return numbers;
+            return allLottoRows.toArray(new int[allLottoRows.size()][]);
 
         }catch(FileNotFoundException err){
             System.err.println("File does not exist");

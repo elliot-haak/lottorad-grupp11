@@ -60,12 +60,25 @@ public class Controller {
 		view.lasaLyssnare(e->{ 
 			//laddar filen och läser den
 			try {
-			int [] rad = fm.loadFromCSV("lottorad.csv");
-			if(rad!=null) {
-				view.visaLottorad(rad); 
-			} else {
-				view.error("No data found"); 
-			}
+			    int [][] rad = fm.loadFromCSV("lottorad.csv");
+                if(rad == null){
+                    System.err.println("No data found");
+                }
+
+                StringBuilder text = new StringBuilder();
+
+                for(int x = 0; x<rad.length; x++){
+                    text.append("Lottorad ").append(x + 1).append(": ");
+
+                    for(int num : rad[x]){
+                        text.append(num). append(" ");
+                    }
+
+                    text.append("\n");
+                }
+
+                view.setText(text.toString());
+
 			}catch(Exception err) {
 				//Ropar på error-metoden i view för att visa felet för användaren
 				view.error(err.getMessage()); 

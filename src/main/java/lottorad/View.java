@@ -101,6 +101,9 @@ public class View extends JFrame {
     public String getAreaText() {
         return area.getText();
     }
+    public void setText(String text){
+        area.setText(text);
+    }
 
 
 }
