@@ -42,13 +42,21 @@ public class Controller {
                 System.out.println(areaText + " areatext");
                 if(areaText.isEmpty()) {
                     view.error("Saknas lottorad");
+                    view.setText("Kunde inte spara");
                     System.out.println("Saknas lottorad");
+                    return;
+                }
+                if(areaText.contains("sparat")) {
+                    view.error("Måste dra ny lottorad");
+                    System.out.println("Måste dra ny lottorad");
                     return;
                 }
 				boolean ok = fm.saveToCSV(model.getLottorad(), "lottorad.csv");
 				if(!ok) {
 					view.error("Could not save the file"); 
 				}
+
+                view.setText("sparat fil");
 				
 			}catch(Exception err) {
 				//Ropar på error-metoden i view för att visa felet för användaren
