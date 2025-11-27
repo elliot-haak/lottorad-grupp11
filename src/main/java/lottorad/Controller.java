@@ -46,6 +46,7 @@ public class Controller {
                     System.out.println("Saknas lottorad");
                     return;
                 }
+                // Om man sparar samma lotto två i rad
                 if(areaText.contains("sparat")) {
                     view.error("Måste dra ny lottorad");
                     System.out.println("Måste dra ny lottorad");
