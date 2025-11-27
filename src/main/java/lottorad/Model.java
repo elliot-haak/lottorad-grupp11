@@ -9,7 +9,7 @@ public class Model {
     public void slump() {
         
         for (int i = 0; i < lottorad.length; i++) {
-            //lokala variabler kan inte vara private 
+           
             int lott = random.nextInt(35) + 1;
             boolean inteUnik = true;
 
@@ -31,6 +31,7 @@ public class Model {
             lottorad[i] = lott;
         }
     }
+    //metod för att kunna hämta lottoraden 
     public int[] getLottorad(){
 
         return lottorad;

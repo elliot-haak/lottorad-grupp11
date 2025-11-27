@@ -1,7 +1,5 @@
 package lottorad;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 public class Main {
 	public static void main(String[] args) {
@@ -16,7 +14,7 @@ public class Main {
 		
 		//lyssnare för knappar "startas" 
 		cont.listeners(); 
-		
+		//visar frame 
 		view.showFrame();
 	
 	}
