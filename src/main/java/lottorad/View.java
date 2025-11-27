@@ -9,6 +9,7 @@ import java.time.LocalTime;
 public class View extends JFrame {
 	private JFrame frame = new JFrame(); 
 	private JTextArea area = new JTextArea();
+    private JScrollBar scroller = new JScrollBar();
 
 	//knappar 
 	private JButton slumpKnapp = new JButton("Slumpa lottorad"); 
@@ -52,7 +53,8 @@ public class View extends JFrame {
 		this.setJMenuBar(menu); // så menyn inte hamnar mitt i. 
 		this.add(area); 
 		panel.add(slumpKnapp); 
-		panel.add(rensaKnapp); 
+		panel.add(rensaKnapp);
+        panel.add(scroller);
 		this.add(panel, BorderLayout.SOUTH); 
 		
 		//Använder till id till lottrader i filhantering 
