@@ -70,23 +70,29 @@ public class Controller {
 		view.lasaLyssnare(e->{ 
 			//laddar filen och läser den
 			try {
+				//läser in sparade lotter från csv filen i en tvådimensionell array
 			    int [][] rad = fm.loadFromCSV("lottorad.csv");
-                if(rad == null){
+              
+			    //OM ingen data hittas skickas ett felmeddelande
+			    if(rad == null){
                     System.err.println("Ingen data hittad");
                 }
-
+			    //Stringbuilder för att bygga upp en text (en lottorad) som ska visas för användaren
                 StringBuilder text = new StringBuilder();
 
+                //loopar igenom varje sparad rad
                 for(int x = 0; x<rad.length; x++){
+                	//För varje lottorad så läggs en rubrik 
                     text.append("Lottorad ").append(x + 1).append(": ");
 
+                    //loopar igenom varje rummer i den aktuella raden och lägger till det i texten
                     for(int num : rad[x]){
                         text.append(num). append(" ");
                     }
-
+                    //Radbrytning efter varje lottorad
                     text.append("\n");
                 }
-
+                //Visar den färdiga texten för användaren
                 view.setText(text.toString());
 
 			}catch(Exception err) {
