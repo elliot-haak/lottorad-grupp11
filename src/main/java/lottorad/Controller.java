@@ -54,7 +54,7 @@ public class Controller {
 			
 				//Om något går fel med sparandet visas error
 				if(!ok) {
-					view.error("Could not save the file"); 
+					view.error("Kunde inte spara filen"); 
 				}
 				
 				//Visar för användaren att filen är sparad
@@ -72,7 +72,7 @@ public class Controller {
 			try {
 			    int [][] rad = fm.loadFromCSV("lottorad.csv");
                 if(rad == null){
-                    System.err.println("No data found");
+                    System.err.println("Ingen data hittad");
                 }
 
                 StringBuilder text = new StringBuilder();
