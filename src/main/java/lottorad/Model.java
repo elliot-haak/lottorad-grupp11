@@ -34,5 +34,11 @@ public class Model {
     public int[] getLottorad(){
     	return lottorad; 
     }
+   /* 
+    public void rensa() {
+    	for(int i =0; i<lottorad.length; i++) {
+    		lottorad[i]=0; 
+    	}
+    } */
 }
 

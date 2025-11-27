@@ -48,6 +48,10 @@ public class Controller {
 				boolean ok = fm.saveToCSV(model.getLottorad(), "lottorad.csv");
 				if(!ok) {
 					view.error("Could not save the file"); 
+				
+				} else {
+				 
+					view.visaLottorad(new int[0]); 
 				}
 				
 			}catch(Exception err) {
