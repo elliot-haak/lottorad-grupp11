@@ -72,6 +72,7 @@ public class Controller {
 			    int [][] rad = fm.loadFromCSV("lottorad.csv");
                 if(rad == null){
                     System.err.println("No data found");
+                    return;
                 }
 
                 StringBuilder text = new StringBuilder();
