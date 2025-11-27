@@ -12,8 +12,9 @@ public class View extends JFrame {
 	private JButton slumpKnapp = new JButton("Slumpa lottorad"); 
 	private JButton rensaKnapp = new JButton("Rensa"); 
 	
-	//panel 
+	//panel och scroller 
 	private JPanel panel = new JPanel(); 
+	private JScrollPane scroller = new JScrollPane(area); 
 	
 	//meny
 	private JMenuBar menu = new JMenuBar();
@@ -33,7 +34,7 @@ public class View extends JFrame {
 	    
 		//Lägg till items och titel i meny 
 		sparaVal = new JMenuItem("Spara lotter");
-		lasaVal = new JMenuItem("Läsa senaste sparade lotten");
+		lasaVal = new JMenuItem("Läsa lotter");
 		menu.add(menuTitel); 
 		menuTitel.add(sparaVal);
 		menuTitel.add(lasaVal); 
@@ -44,10 +45,10 @@ public class View extends JFrame {
 		
 		//Lägger in allt i frame och panel och meny 
 		this.setJMenuBar(menu); // så menyn inte hamnar mitt i. 
-		this.add(area); 
 		panel.add(slumpKnapp); 
 		panel.add(rensaKnapp); 
 		this.add(panel, BorderLayout.SOUTH); 
+		this.add(scroller, BorderLayout.CENTER);
 		
 	}
 	//Metod för att visa frame 
