@@ -1,32 +1,28 @@
 package lottorad;
 import java.awt.*;
 import java.awt.event.ActionListener;
-//import java.io.IOException;   try and catch 
 import javax.swing.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
+
 
 public class View extends JFrame {
-	private JFrame frame = new JFrame(); 
+	//area
 	private JTextArea area = new JTextArea();
+
 	//knappar 
 	private JButton slumpKnapp = new JButton("Slumpa lottorad"); 
 	private JButton rensaKnapp = new JButton("Rensa"); 
 	
-	//panel 
+	//panel och scroller 
 	private JPanel panel = new JPanel(); 
-
+	private JScrollPane scroller = new JScrollPane(area); 
+	
 	//meny
 	private JMenuBar menu = new JMenuBar();
 	private JMenu menuTitel = new JMenu("File");
 	private JMenuItem sparaVal;
 	private JMenuItem lasaVal; 
 	
-	//Använder till id till lottrader 
-	private LocalDate date = LocalDate.now();
-	private LocalTime time = LocalTime.now();
-	
-	//måste lägga det i konstruktorn 
+	//måste lägga in de privata attributen i konstruktorn för att använda dem 
 	public View() {
 		System.out.println("View skapad!");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -36,34 +32,40 @@ public class View extends JFrame {
 		this.setLocationRelativeTo(null); 
 		this.setTitle("Slumpa lotter");
 	    
-		//Lägg till i meny 
+		//Lägg till items och titel i meny 
 		sparaVal = new JMenuItem("Spara lotter");
 		lasaVal = new JMenuItem("Läsa lotter");
 		menu.add(menuTitel); 
 		menuTitel.add(sparaVal);
 		menuTitel.add(lasaVal); 
 		
-		//area och panel 
+		//area och panel hantering 
 		area.setEditable(false); // så man inte kan skriva i den 
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER,30,10)); 
 		
-		//Lägger in i frame och panel och meny 
+		//Lägger in allt i frame och panel och meny 
 		this.setJMenuBar(menu); // så menyn inte hamnar mitt i. 
-		this.add(area); 
 		panel.add(slumpKnapp); 
-		panel.add(rensaKnapp);
-		this.add(panel, BorderLayout.SOUTH);
-		
-		//Använder till id till lottrader i filhantering 
-		System.out.println("Datum: "+date +" Tid: "+ time);
-	  
+		panel.add(rensaKnapp); 
+		this.add(panel, BorderLayout.SOUTH); 
+		this.add(scroller, BorderLayout.CENTER);
 		
 	}
+	public void visaSparadLottDialog() {
+	    JOptionPane.showMessageDialog(
+	        this,                          // fönstret som dialogen hör till
+	        "Du har sparat lotten.",       // meddelandetext
+	        "Lott sparad",                 // titel på popupen
+	        JOptionPane.INFORMATION_MESSAGE // ikon-typ (info)
+	    );
+	}
+
+	//Metod för att visa frame 
 	public void showFrame() {
 		setVisible(true);
 	}
 	
-	//lyssnare Menyvalen 
+	//lyssnare Meny och knappvalen 
 	public void rensaLyssnare(ActionListener lyssnare) {
 
 		rensaKnapp.addActionListener(lyssnare); 
@@ -77,6 +79,7 @@ public class View extends JFrame {
 	public void sparaLyssnare(ActionListener lyssnare) {
 		
 		sparaVal.addActionListener(lyssnare); 
+		
 		
 	}
 	public void lasaLyssnare(ActionListener lyssnare) {
@@ -97,15 +100,15 @@ public class View extends JFrame {
 	public void error(String msg) {
 	    JOptionPane.showMessageDialog(this, msg);
 	}
+	
+	//getmetod för att hämta texten i area
     public String getAreaText() {
         return area.getText();
     }
-    /*public void success(String msg) {
-        JOptionPane.show
-    }*/
     public void setText(String text){
         area.setText(text);
     }
+
 
 
 }
