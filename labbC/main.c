@@ -28,12 +28,12 @@ int andraVal;
 //         break;
 //     }
 // }
-int exArr[7] = {3, 6, 3, 6, 7, 6, 9};
-int arrLen = sizeof(exArr) / sizeof(exArr[0]);
+int exArr[7] = {3, 6, 3, 6, 7, 6, 9}; //Exempel array
+int arrLen = sizeof(exArr) / sizeof(exArr[0]); // längden av array för looping
 
 
 // FILhANTERING
-void saveToCSV(int arr[], int n) {
+void saveToCSV(int arr[], int n) { //spara till fil
     FILE *stream = fopen("lotto.csv", "a+");
     for(int i = 0; i < n; i++) {
         
@@ -46,12 +46,12 @@ void saveToCSV(int arr[], int n) {
     }
     printf("blev sparad till lotto.csv!");    
 }
-void readFromCSV() {
+void readFromCSV() { //Läsa fil
     FILE *stream = fopen("lotto.csv", "r");
     char buffer[100];
     char all[500] = "";
-    while (fgets(buffer, sizeof(buffer), stream)) {
-        strcat(all, buffer);
+    while (fgets(buffer, sizeof(buffer), stream)) { //skapa lagring
+        strcat(all, buffer); //lägga ihopp allting från varje buffer
     }
     
     printf("%s", all);
@@ -65,5 +65,4 @@ int main() {
     //     scanf("%d", &startInput);
     //     textUI(startInput);
     saveToCSV(exArr, arrLen);
-    //printf("%s", output);
 }
