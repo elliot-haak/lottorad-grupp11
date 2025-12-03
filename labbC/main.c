@@ -50,9 +50,11 @@ void readFromCSV() { //Läsa fil
     FILE *stream = fopen("lotto.csv", "r");
     char buffer[100];
     char all[500] = "";
-    while (fgets(buffer, sizeof(buffer), stream)) { //skapa lagring
-        printf("Lottorad: %s", buffer);
-        strcat(all, buffer); //lägga ihopp allting från varje buffer
+    while (fgets(buffer, sizeof(buffer), stream)) { //skapa lagring och loopa alla rader styckvis
+        printf("Lottorad: %s", buffer); // print ut varje enskild rad
+
+        strcat(all, buffer); //lägga ihopp allting från varje buffer, 
+        //Detta behövs endast om man vill slå ihopp allt till en String
     }
     
     //printf("%s", all);
