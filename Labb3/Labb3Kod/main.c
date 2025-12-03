@@ -8,35 +8,12 @@
 
 void drawLotto(int row[]);
 int enterRows();
-void textUI(int val);
+void textUI(void);
 
-int main(){
-
-  int val;
-
-  printf("Menu för lottrader\n");
-  printf("1. Generera nya lottorader\n");
-  printf("2. läs fil\n");
-  printf("3. Avsluta\n");
-
-  printf("ditt val: ");
-
-  scanf("%d", &val);
-
-  switch(val){
-    case 1:
-      enterRows();
-      textUI(val);
-    break;
-
-    case 2:
-    break;
-
-    default:
-      break;
-  }
-
-
+int main(void){
+    srand(time(NULL));
+    textUI();   // starta huvudmenyn
+    return 0;
 }
 
 void drawLotto(int row[]){
@@ -64,7 +41,7 @@ void drawLotto(int row[]){
 
 }
 
-int enterRows(){
+int enterRows(void){
 
   int num;
 
@@ -73,7 +50,7 @@ int enterRows(){
   printf("Ange antal lottorader: ");
 
   if(scanf("%d", &num) != 1){
-    printf("ange ett tal! avslutar\n");
+    printf("ange ett heltal\n");
     return 1;
   }
 
@@ -91,32 +68,47 @@ int enterRows(){
   return 1;
 }
 
+void textUI(){
+  int val;
 
-void textUI(int val){
+  while(1){
 
-  printf("1. Generera ny rad/rader | ");
-  printf("2. spara rader till fil | ");
-  printf("3. Startsida | ");
-  printf("4. Avsluta\n");
-  printf("ditt val: ");
-  scanf("%d", &val);
+      printf("Menu för lottrader\n");
+      printf("1. Generera nya lottorader\n");
+      printf("2. läs fil\n");
+      printf("3. Avsluta\n");
+
+      printf("ditt val: ");
+      // inte nummer eller över 3
+      if (scanf("%d", &val) != 1|| val>3) {
+          printf("\nFel inmatning, går tillbaka till startsidan.\n");
+
+          // Töm inmatningsbufferten (släng allt fram till radslut)
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {
+                // gör inget, bara läser bort tecknen
+            }
+
+            printf("\n");
+
+         continue; // gå tillbaka till menyn
+      }
+      break;
+  }
+
   switch(val){
     case 1:
       enterRows();
-      textUI(val);
-    break;
+      break;
 
     case 2:
-      //funktion sparafiler här
-    break;
+      break;
 
     case 3:
-      main();
-    break;
+      printf("Avslutar...");
+      exit(0);
 
     default:
-      //funktion sparafiler här
-    break;
-
+      break;
   }
 }
