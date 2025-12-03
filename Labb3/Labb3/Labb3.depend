@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1764690522 source:c:\users\maria\documents\webbutvecklingsprogrammet\programutveckling\labb3\labb3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"Model.h"
+
+1764690265 c:\users\maria\documents\webbutvecklingsprogrammet\programutveckling\labb3\labb3\model.h
+
+1764686100 source:c:\users\maria\documents\webbutvecklingsprogrammet\programutveckling\labb3\labb3\controller.c
+	<stdio.h>
+	<stdlib.h>
+
+1764690518 source:c:\users\maria\documents\webbutvecklingsprogrammet\programutveckling\labb3\labb3\model.c
+	<stdlib.h>
+	<stdbool.h>
+	"Model.h"
+
+1764745266 source:c:\users\maria\documents\webbutvecklingsprogrammet\programutveckling\labb3\labb3\view.c
+	<stdio.h>
+	<stdlib.h>
+	"View.h"
+
+1764744620 c:\users\maria\documents\webbutvecklingsprogrammet\programutveckling\labb3\labb3\view.h
+	"Model.h"
+
