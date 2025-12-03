@@ -44,17 +44,18 @@ void saveToCSV(int arr[], int n) { //spara till fil
     for (int i = 0; i < n; i++) {
         printf("%d ", exArr[i]);
     }
-    printf("blev sparad till lotto.csv!");    
+    printf("blev sparad till lotto.csv! \n");    
 }
 void readFromCSV() { //Läsa fil
     FILE *stream = fopen("lotto.csv", "r");
     char buffer[100];
     char all[500] = "";
     while (fgets(buffer, sizeof(buffer), stream)) { //skapa lagring
+        printf("Lottorad: %s", buffer);
         strcat(all, buffer); //lägga ihopp allting från varje buffer
     }
     
-    printf("%s", all);
+    //printf("%s", all);
 }
 
 int main() {
@@ -65,4 +66,5 @@ int main() {
     //     scanf("%d", &startInput);
     //     textUI(startInput);
     saveToCSV(exArr, arrLen);
+    readFromCSV();
 }
