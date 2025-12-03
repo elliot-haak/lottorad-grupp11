@@ -16,7 +16,8 @@ int main(){
 
   printf("Menu för lottrader\n");
   printf("1. Generera nya lottorader\n");
-  printf("2. jaud\n");
+  printf("2. läs fil\n");
+  printf("3. Avsluta\n");
 
   printf("ditt val: ");
 
@@ -29,7 +30,6 @@ int main(){
     break;
 
     case 2: 
-     printf("jadu");
     break;
 
     default:
@@ -94,12 +94,29 @@ int enterRows(){
 
 void textUI(int val){
 
-  printf("1. Startsida\n");
+  printf("1. Generera ny rad/rader | ");
+  printf("2. spara rader till fil | ");
+  printf("3. Startsida | ");
+  printf("4. Avsluta\n");
   printf("ditt val: ");
   scanf("%d", &val);
   switch(val){
     case 1: 
-    main();
+      enterRows();
+      textUI(val);
+    break;
+
+    case 2: 
+      //funktion sparafiler här
+    break;
+
+    case 3: 
+      main();
+    break;
+
+    default: 
+      //funktion sparafiler här
+    break;
     
   }
 }
