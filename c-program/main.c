@@ -2,13 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <time.h>
+#include "header.h"
 
 #define MAX_NUM 35
 #define MAX_ANTAL 7
 
-void drawLotto(int row[]);
-int enterRows();
-void textUI(int val);
 
 int main(){
 
@@ -70,12 +68,17 @@ int enterRows(){
 
   srand(time(NULL));
   
+
   printf("Ange antal lottorader: ");
 
   if(scanf("%d", &num) != 1){
-    printf("ange ett tal! avslutar\n");
+    printf("ej ett heltal! Avslutar\n");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
     return 1;
   }
+
+
 
   for(int x = 0; x < num; x++){
     int row[MAX_ANTAL];
@@ -88,7 +91,7 @@ int enterRows(){
     printf("\n");
   }
 
-  return 1;
+  return 0;
 }
 
 
@@ -115,8 +118,8 @@ void textUI(int val){
     break;
 
     default: 
-      //funktion sparafiler här
     break;
     
   }
 }
+
