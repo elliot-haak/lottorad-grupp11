@@ -66,21 +66,51 @@ int enterRows(void){
     printf("ange ett heltal\n");
     return 1;
   }
-
+ int row[MAX_ANTAL];
   for(int x = 0; x < num; x++){
-    int row[MAX_ANTAL];
+
     drawLotto(row);
 
     for(int y = 0; y < MAX_ANTAL; y++){
       printf("%d ", row[y]);
     }
-
     printf("\n");
-    saveToCSV(row, MAX_ANTAL);
   }
 
-  return 1;
-}
+
+    //spara eller inte spara
+    int sparaVal;
+    printf("\n Vill du spara? 1=ja 0=nej");
+
+    if (scanf("%d", &sparaVal) != 1) {
+    printf("Fel inmatning, sparar inte.\n");
+    int c;
+            while ((c = getchar()) != '\n' && c != EOF) {
+
+            }
+    }
+
+    else if(sparaVal == 0){
+       printf("Detta sparas inte vidare till meny");
+       //textUI();
+    }
+    else if(sparaVal == 1){
+
+         printf("Ja vi sparar din lottorad eller dina lottorader");
+
+             printf("\n");
+             saveToCSV(row, MAX_ANTAL);
+
+            }
+       else{
+           printf("Du måste ange 0 eller 1\n");
+       }
+
+         return 1;
+  }
+
+
+
 
 void textUI(){
   int val;
@@ -121,7 +151,7 @@ void textUI(){
 
         case 2:
         readFromCSV();
-        textUI();
+        //textUI();
 
           break;
 
@@ -151,6 +181,7 @@ void saveToCSV(int arr[], int n) { //spara till fil
 
     printf("blev sparad till lotto.csv! \n");*/
 }
+
 void readFromCSV() { //Läsa fil
     FILE *stream = fopen("lotto.csv", "r");
     char buffer[100];
