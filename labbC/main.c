@@ -36,8 +36,7 @@ int arrLen = sizeof(exArr) / sizeof(exArr[0]); // längden av array för looping
 void saveToCSV(int arr[], int n) { //spara till fil
     FILE *stream = fopen("lotto.csv", "a+");
     for(int i = 0; i < n; i++) {
-        
-                fprintf(stream, "%d ", exArr[i]);    // or "%d " for same-line
+        fprintf(stream, "%d ", exArr[i]);    // or "%d " for same-line
     }
     fprintf(stream, "\n");
     fclose(stream);
@@ -52,7 +51,7 @@ void readFromCSV() { //Läsa fil
     char all[500] = "";
     while (fgets(buffer, sizeof(buffer), stream)) { //skapa lagring och loopa alla rader styckvis
         printf("Lottorad: %s", buffer); // print ut varje enskild rad
-
+        
         strcat(all, buffer); //lägga ihopp allting från varje buffer, 
         //Detta behövs endast om man vill slå ihopp allt till en String
     }
@@ -66,7 +65,21 @@ int main() {
     //         "1 - Dra lottorad \n2 - Gamla lottorader \n3 - Stäng av\n"
     //     );
     //     scanf("%d", &startInput);
-    //     textUI(startInput);
-    saveToCSV(exArr, arrLen);
-    readFromCSV();
+    //     textUI(startInput)
+    float input;
+    int convertedInput;
+    printf("Välj val - \n1 - Spara rad\n2 - Läsa lottofil");
+    scanf("%f", &input);
+    convertedInput = (int)input;
+    printf("%i, %2f",convertedInput ,input);
+
+    if(convertedInput == 1) {
+      saveToCSV(exArr, arrLen); 
+      return 1; 
+    }
+    if(convertedInput == 2) {
+       readFromCSV(); 
+       return 1;
+    }
+    printf("Ogiltig input, avslutar...");
 }
