@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1764774207 source:c:\users\maria\documents\webbutvecklingsprogrammet\programutveckling\labb2\lottorad-grupp11\labb3\labb3kod\main.c
+1764848615 source:c:\users\maria\documents\webbutvecklingsprogrammet\programutveckling\labb2\lottorad-grupp11\labb3\labb3kod\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
 	<time.h>
+	<string.h>
 
