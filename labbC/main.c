@@ -5,6 +5,8 @@
 int startInput;
 int andraVal;
 
+
+// ##### DETTA ANVÄNDS INTE JUST NU!!!
 // void textUI(int val) {
     
 //     switch (val)
@@ -27,10 +29,10 @@ int andraVal;
 //         //main();
 //         break;
 //     }
-// }
+// } #######
+
 int exArr[7] = {3, 6, 3, 6, 7, 6, 9}; //Exempel array
 int arrLen = sizeof(exArr) / sizeof(exArr[0]); // längden av array för looping
-
 
 // FILhANTERING
 void saveToCSV(int arr[], int n) { //spara till fil
@@ -60,12 +62,6 @@ void readFromCSV() { //Läsa fil
 }
 
 int main() {
-    // printf("Välj alternativ \n");
-    //     printf(
-    //         "1 - Dra lottorad \n2 - Gamla lottorader \n3 - Stäng av\n"
-    //     );
-    //     scanf("%d", &startInput);
-    //     textUI(startInput)
     float input; // Ta emot en float från användaren
     int convertedInput; //Float som är konverterad till int
     printf("Välj val - \n1 - Spara rad\n2 - Läsa lottofil");
