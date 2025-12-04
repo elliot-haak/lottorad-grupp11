@@ -66,13 +66,14 @@ int main() {
     //     );
     //     scanf("%d", &startInput);
     //     textUI(startInput)
-    float input;
-    int convertedInput;
+    float input; // Ta emot en float från användaren
+    int convertedInput; //Float som är konverterad till int
     printf("Välj val - \n1 - Spara rad\n2 - Läsa lottofil");
     scanf("%f", &input);
-    convertedInput = (int)input;
-    printf("%i, %2f",convertedInput ,input);
+    convertedInput = (int)input; // Type casata floaten till en int
+    printf("%i, %2f \n",convertedInput ,input);
 
+    //Om inputen är x: (Skulle också kunna använda switch case här)
     if(convertedInput == 1) {
       saveToCSV(exArr, arrLen); 
       return 1; 
@@ -81,5 +82,6 @@ int main() {
        readFromCSV(); 
        return 1;
     }
+    //Om inget stämmer gör:
     printf("Ogiltig input, avslutar...");
 }
