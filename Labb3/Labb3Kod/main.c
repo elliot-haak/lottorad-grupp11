@@ -28,7 +28,7 @@ int main(void){
      //readFromCSV();
     return 0;
 }
-
+//metod för att generara lotter
 void drawLotto(int row[]){
 
   for(int x = 0; x < MAX_ANTAL; x++){
@@ -46,14 +46,13 @@ void drawLotto(int row[]){
           unique = false;
         }
       }
-
       row[x] = randomNum;
 
     }
   }
 
 }
-
+//Metoder för att ange lotter
 int enterRows(void){
 
   int num;
@@ -80,19 +79,25 @@ int enterRows(void){
 
     //spara eller inte spara
     int sparaVal;
-    printf("\n Vill du spara? 1=ja 0=nej");
 
-    if (scanf("%d", &sparaVal) != 1) {
-    printf("Fel inmatning, sparar inte.\n");
+
+    printf("\n Vill du spara? 1=ja 0=nej. Ditt svar: ");
+
+    while(scanf("%d", &sparaVal) != 1) {
+    printf("\n Nu gjorde du fel, Vill du spara? 1=ja 0=nej. Ditt svar: ");
     int c;
             while ((c = getchar()) != '\n' && c != EOF) {
 
             }
     }
+            // tömmer alltid resten av raden tex vid decimaltal
+        int d;
+        while ((d = getchar()) != '\n' && d != EOF) {
 
-    else if(sparaVal == 0){
+        }
+
+    if(sparaVal == 0){
        printf("Detta sparas inte vidare till meny");
-       //textUI();
     }
     else if(sparaVal == 1){
 
@@ -102,6 +107,7 @@ int enterRows(void){
              saveToCSV(row, MAX_ANTAL);
 
             }
+
        else{
            printf("Du måste ange 0 eller 1\n");
        }
@@ -150,8 +156,9 @@ void textUI(){
           break;
 
         case 2:
+        printf("\n");
         readFromCSV();
-        //textUI();
+        printf("\n");
 
           break;
 
@@ -169,17 +176,10 @@ void saveToCSV(int arr[], int n) { //spara till fil
     FILE *stream = fopen("lotto.csv", "a");
     for(int i = 0; i < n; i++) {
 
-                fprintf(stream, "%d ", arr[i]);    // or "%d " for same-line
+                fprintf(stream, "%d ", arr[i]);
     }
     fprintf(stream, "\n");
     fclose(stream);
-
-    /*
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-
-    printf("blev sparad till lotto.csv! \n");*/
 }
 
 void readFromCSV() { //Läsa fil
