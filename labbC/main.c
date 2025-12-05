@@ -51,8 +51,9 @@ void readFromCSV() { //Läsa fil
     FILE *stream = fopen("lotto.csv", "r");
     char buffer[100];
     char all[500] = "";
+    printf("Lottorader: \n");
     while (fgets(buffer, sizeof(buffer), stream)) { //skapa lagring och loopa alla rader styckvis
-        printf("Lottorad: %s", buffer); // print ut varje enskild rad
+        printf("%s", buffer); // print ut varje enskild rad
         
         strcat(all, buffer); //lägga ihopp allting från varje buffer, 
         //Detta behövs endast om man vill slå ihopp allt till en String
@@ -64,7 +65,7 @@ void readFromCSV() { //Läsa fil
 int main() {
     float input; // Ta emot en float från användaren
     int convertedInput; //Float som är konverterad till int
-    printf("Välj val - \n1 - Spara rad\n2 - Läsa lottofil");
+    printf("Välj val - \n1 - Spara rad\n2 - Läsa lottofil\n");
     scanf("%f", &input);
     convertedInput = (int)input; // Type casata floaten till en int
     printf("%i, %2f \n",convertedInput ,input);
@@ -79,5 +80,5 @@ int main() {
        return 1;
     }
     //Om inget stämmer gör:
-    printf("Ogiltig input, avslutar...");
+    printf("Ogiltig input, avslutar... \n");
 }
