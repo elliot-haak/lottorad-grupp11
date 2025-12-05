@@ -28,6 +28,7 @@ int main() {
         printf("4. Avsluta\n");
         printf("Val: ");
 
+
         //denna bit är tagen från chatgpt och återanvänder den några rader ner.
         //prompt: Hur tömmer jag bufferten i c?
         /*svar: int x;
@@ -41,23 +42,28 @@ int main() {
           printf("Error: Ange en siffra 1-4");
           while((c = getchar()) != '\n' && c != EOF);
           continue;
-        
 
     }
+
+        //vid inmatning med 0.+(1-9) så ligger den kvar till switch satsen och vi hamnade i default i switch satsen 
+        while((c = getchar()) != '\n' && c != EOF);
 
         //meny med en switch med cases som representerar menyvalen som lagras i variabeln choice
         switch(choice) {
 
             case 1: {
-                printf("Hur många rader vill du generera? ");
 
+                 printf("Hur många rader vill du generera? ");
                 //Här är nästa kod snutt som är tagen från chatgpt och har återanvänt samma prompt
                 if(scanf("%d", &antal) != 1) {
-                  printf("Error: Ange en siffra 1-4");
+                  printf("\nError: Ange en siffra 1-4");
                   while((c = getchar()) != '\n' && c != EOF);
                   antal = 0;
                   break;
-            }
+                }
+
+            // töm resten av raden även vid lyckad inläsning såsom 0.någonting
+               //while ((c = getchar()) != '\n' && c != EOF){}
 
                 //kontrollerar så användaren anger rätt mängd rader, där vi ha begränsat till 100 rader
                 //vid fel så skriver vi ett fel meddelande och användaren får återgå till menyvalen
@@ -105,6 +111,7 @@ int main() {
 
             default:
                 printf("Fel val: Ange ett tal 1-4\n");
+                break;
         }
     }
 }
