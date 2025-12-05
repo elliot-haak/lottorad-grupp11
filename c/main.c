@@ -190,4 +190,6 @@ void readFromCSV() {
     fclose(f);
 }
 
-
+/*Motivation av val med textbaserad fil:  För att detta är en enkel samling med heltal. Tex en tvådimensionell array är
+tillräcklig. Men om man skulle göra denna ännu mer komplex så skulle det nog vara enklare att använda sig av en
+structbaserad fil med flera typer av fält som kan användas då skulle det kunna finnas mer fördelar.*/
